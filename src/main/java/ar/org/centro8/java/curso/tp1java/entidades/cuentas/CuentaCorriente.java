@@ -21,26 +21,24 @@ public class CuentaCorriente extends Cuenta {
             Cliente cliente,
             double montoDescubierto) {
 
-        // Llama al constructor de Cuenta.
         // La cuenta comienza con saldo 0.
-        super(numCuenta, cliente, 0.0);
+        super(numCuenta, cliente);
 
         // Guarda el monto autorizado para el descubierto.
         this.montoDescubierto = montoDescubierto;
     }
 
-    // Permite extraer dinero usando el saldo y, si hace falta,
-    // el monto autorizado de descubierto.
-    @Override //redefine un metodo de la clase padre
+    // Permite extraer dinero usando el saldo y el descubierto autorizado.
+    @Override
     public void debitarEfectivo(double monto) {
         if (monto > 0 && monto <= getSaldo() + montoDescubierto) {
             setSaldo(getSaldo() - monto);
         }
     }
 
-    // Recibo un cheque. Si el cheque existe y tiene un monto válido, sumo ese monto al saldo de la cuenta corriente.
-    public void depositarCheque(Cheque cheque) {  //Este método recibe un objeto de tipo Cheque
-        if (cheque != null && cheque.getMonto() > 0) {  // El cheque tiene que existir y además su monto tiene que ser mayor que cero
+    // Recibe un cheque y acredita su monto si es válido.
+    public void depositarCheque(Cheque cheque) {
+        if (cheque != null && cheque.getMonto() > 0) {
             setSaldo(getSaldo() + cheque.getMonto());
         }
     }

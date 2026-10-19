@@ -23,7 +23,7 @@ public class CajaAhorro extends Cuenta {
 
         // Llama al constructor de Cuenta.
         // La cuenta comienza con saldo 0.
-        super(numCuenta, cliente, 0.0);
+        super(numCuenta, cliente);
 
         // Guarda la tasa de interés.
         this.tasaInteres = tasaInteres;
