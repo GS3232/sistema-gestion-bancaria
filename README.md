@@ -1,4 +1,4 @@
-# TP1 Java POO — Sistema Bancario
+#  Java POO — Sistema Bancario
 
 ## Descripción del proyecto
 
